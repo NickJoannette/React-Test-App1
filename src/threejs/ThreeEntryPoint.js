@@ -6,20 +6,22 @@ export default function ThreeEntryPoint(sceneRef) {
 	
 
 	
-
+  var viewPortDiv = document.getElementById("3js1");
 
 	let mixer;
   // Create Scene
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0.03,0.02,0.02);
+  scene.background = new THREE.Color(0.08,0.44,0.64);
 
   // Define a camera, set it to fill the browser window and position it
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+  const camera = new THREE.PerspectiveCamera(75, viewPortDiv.offsetWidth/ viewPortDiv.offsetHeight, 0.1, 10000);
   camera.position.z = 5;
 
+
   // Define a renderer, and set it to fill the browser window
-  const renderer = new THREE.WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = new THREE.WebGLRenderer();
+//  document.getElementById("3js1").innerHTML=viewPortDiv.width;
+  renderer.setSize(viewPortDiv.offsetWidth, viewPortDiv.offsetHeight);
 
   // Get an element from the DOM and append renderer.domElement to it
   sceneRef.appendChild(renderer.domElement);
