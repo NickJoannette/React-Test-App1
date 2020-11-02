@@ -11,7 +11,7 @@ export default function ThreeEntryPoint(sceneRef) {
 	let mixer;
   // Create Scene
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(1,1,1);
+  scene.background = new THREE.Color(0.03,0.02,0.02);
 
   // Define a camera, set it to fill the browser window and position it
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -52,9 +52,10 @@ export default function ThreeEntryPoint(sceneRef) {
 				grid.material = material;
 				//scene.add( grid );
 
+var cb = 1;
 				// model
 				const loader = new FBXLoader.FBXLoader();
-				loader.load( './models/test.fbx', function ( object ) {
+				loader.load( './models/earth_lowpoly.fbx', function ( object ) {
 
 					//mixer = new THREE.AnimationMixer( object );
 
@@ -67,26 +68,31 @@ export default function ThreeEntryPoint(sceneRef) {
 
 							child.castShadow = true;
 							child.receiveShadow = true;
-							child.scale.x = 0.05;
-							child.scale.y=0.05;
-							child.scale.z=0.05;
+							child.scale.x = 0.5;
+							child.scale.y=0.5;
+							child.scale.z=0.5;
+					
 						}
 
 					} );
-	
+		cb = object;
+					
 					scene.add( object );
 
 				} );
 
+const light = new THREE.AmbientLight( new THREE.Color(0.5,0.5,0.5)); // soft white light
 
+scene.add( light );
   // Create an animate function, which will allow you to render your scene and define any movements
   const animate = function () {
     requestAnimationFrame(animate);
 
    // mesh.rotation.x += 0.005;
+
     // mesh.rotation.y += 0.005;
     //mesh.rotation.z += 0.005;
-
+if (cb!=1) cb.rotation.y += 0.005;
     renderer.render(scene, camera);
   };
 
