@@ -1,6 +1,7 @@
 {
   "name": "three-js-sample",
   "version": "0.1.0",
+  "homepage": "https://nickjoannette.github.io/React-Test-App1",
   "private": true,
   "dependencies": {
     "react": "^16.9.0",
