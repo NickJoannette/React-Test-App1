@@ -2,7 +2,7 @@
 .navBar {
 	background-color:#333;
 	height:100px;
-	color:whitesmoke;
+	color:blue;
 	margin-bottom:15px;
 	text-align:center;
 	font-size:30px;
@@ -17,9 +17,12 @@
    font-size: 4.5em;
    letter-spacing: -1px;
    padding:5px;
-
+text-align:center;
+display:flex;
+justify-content:center;
+	align-items:center;
    background-color: black;
-   color: white;
+   color: whitesmoke;
 	
 }
 
